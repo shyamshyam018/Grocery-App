@@ -39,6 +39,13 @@
           background-color: #5a6268;
         }
       }
+      /* app.component.scss */
+        .main-content {
+          min-height: calc(100vh - 150px); /* Adjust based on the height of navbar and footer */
+          padding: 20px;
+          box-sizing: border-box;
+        }
+
     }
   }
   
