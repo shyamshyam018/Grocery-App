@@ -16,40 +16,50 @@
 }
 
 .logo-container {
-  text-align: center; /* Center logo and name */
-  margin-bottom: 20px; /* Space below logo */
+  display: flex; /* Use flexbox for logo and name alignment */
+  align-items: center; /* Center items vertically */
+  margin-top: 20px; /* Add space above logo */
+  margin-bottom: 30px; /* Space below logo */
 }
 
 .logo {
-  width: 100px; /* Adjust logo size */
-  height: auto; /* Maintain aspect ratio */
+  width: 50px; /* Adjust logo size */
+  height: 50px; /* Maintain aspect ratio */
 }
 
 .logo-name {
-  font-size: 1.5rem; /* Font size for the logo name */
-  margin-top: 10px; /* Space above name */
+  font-size: 1rem; /* Font size for the logo name */
+  margin-left: 10px; /* Space between logo and name */
+  font-weight: bold; /* Make logo name bold */
 }
 
 .sidebar ul {
   list-style: none; /* Remove default list styling */
   padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
   flex-grow: 1; /* Allow the list to grow and fill available space */
   display: flex;
   flex-direction: column; /* Stack items vertically */
-  justify-content: center; /* Center items vertically */
 }
 
 .sidebar ul li {
-  margin: 10px 0; /* Space between items */
+  margin: 15px 0; /* Space between items */
+  width: 100%; /* Make list items take the full width */
 }
 
 .sidebar ul li a {
   color: white; /* Link color */
   text-decoration: none; /* No underline */
-  display: block; /* Make the entire area clickable */
-  text-align: center; /* Center text in the link */
-  padding: 10px; /* Padding for clickable area */
+  display: flex; /* Use flex for better alignment */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  padding: 15px; /* Padding for clickable area */
   border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.sidebar ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Light background on hover */
 }
 
 .sidebar ul li a.active-link {
