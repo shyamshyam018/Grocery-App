@@ -1,17 +1,20 @@
 <!-- src/app/pages/chef/chef.component.html -->
 <div class="chef-dashboard-container">
-    <!-- Sidebar -->
-    <nav class="sidebar">
-      <ul>
-        <li><a routerLink="/chef/dashboard" routerLinkActive="active-link">Dashboard</a></li>
-        <li><a routerLink="/chef/create-list" routerLinkActive="active-link">Create List</a></li>
-        <li><a routerLink="/chef/generate-receipt" routerLinkActive="active-link">Generate Receipt</a></li>
-      </ul>
-    </nav>
-  
-    <!-- Main Content Area -->
-    <div class="main-content">
-      <router-outlet></router-outlet> <!-- This will load child routes -->
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="Logo" class="logo" />
+      <h2 class="logo-name">Chef Dashboard</h2>
     </div>
+    <ul>
+      <li><a routerLink="/chef/dashboard" routerLinkActive="active-link">Dashboard</a></li>
+      <li><a routerLink="/chef/create-list" routerLinkActive="active-link">Create List</a></li>
+      <li><a routerLink="/chef/generate-receipt" routerLinkActive="active-link">Generate Receipt</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <router-outlet></router-outlet> <!-- This will load child routes -->
   </div>
-  
+</div>

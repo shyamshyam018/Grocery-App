@@ -303,4 +303,10 @@ export class CreateListComponent {
     event.preventDefault();
     this.fruitsScroll.nativeElement.scrollLeft += event.deltaY;
   }
+  
+  viewCart() {
+    // Logic to view the cart, like navigating to a cart component
+    alert('Navigating to cart...'); // Replace with actual logic
+  }
+  
 }

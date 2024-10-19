@@ -9,11 +9,34 @@
   background-color: #343a40; /* Dark background color */
   color: white; /* Text color */
   padding: 20px; /* Padding for the sidebar */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+}
+
+.logo-container {
+  text-align: center; /* Center logo and name */
+  margin-bottom: 20px; /* Space below logo */
+}
+
+.logo {
+  width: 100px; /* Adjust logo size */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.logo-name {
+  font-size: 1.5rem; /* Font size for the logo name */
+  margin-top: 10px; /* Space above name */
 }
 
 .sidebar ul {
   list-style: none; /* Remove default list styling */
   padding: 0; /* Remove default padding */
+  flex-grow: 1; /* Allow the list to grow and fill available space */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center items vertically */
 }
 
 .sidebar ul li {
@@ -23,11 +46,16 @@
 .sidebar ul li a {
   color: white; /* Link color */
   text-decoration: none; /* No underline */
+  display: block; /* Make the entire area clickable */
+  text-align: center; /* Center text in the link */
+  padding: 10px; /* Padding for clickable area */
+  border-radius: 5px; /* Rounded corners */
 }
 
 .sidebar ul li a.active-link {
   font-weight: bold; /* Bold font for active link */
   color: #ffc107; /* Highlight color for active link */
+  background-color: rgba(255, 193, 7, 0.2); /* Light background for active link */
 }
 
 .main-content {

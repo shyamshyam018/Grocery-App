@@ -1,9 +1,16 @@
-<div class="grocery-list w-full max-w-6xl mx-auto p-6">
-  <h1 class="title text-3xl font-bold mb-8 text-center">Grocery List</h1>
 
-  <div class="search-container mb-6">
-      <input type="text" [(ngModel)]="searchQuery" placeholder="Search for groceries..." class="search-input border border-gray-300 p-3  rounded w-full md:w-2/3 lg:w-1/2 mx-auto" />
-  </div>
+
+<div class="grocery-list w-full max-w-6xl mx-auto p-6">
+    <h1 class="title text-3xl font-bold mb-8 text-center">Grocery List</h1>
+
+    <div class="search-container mb-6 flex items-center justify-center"> <!-- Use flex for centering -->
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        placeholder="Search for groceries..."
+        class="search-input border border-gray-300 p-3 rounded w-full md:w-2/3 lg:w-1/2 mr-3"
+      />
+    </div>
 
   <h1 class="title text-3xl font-semibold mb-8 text-center">Dairy Items</h1>
 <div class="relative flex items-center">
