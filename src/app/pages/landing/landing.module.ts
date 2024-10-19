@@ -11,9 +11,10 @@ import { RouterModule, RouterOutlet , RouterLink , RouterLinkActive  } from '@an
 
 @NgModule({
   declarations: [
-    LandingComponent
+
   ],
   imports: [
+    LandingComponent,
     CommonModule,
     NavbarComponent, 
     FooterComponent ,

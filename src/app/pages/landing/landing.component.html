@@ -1,16 +1,90 @@
 <app-navbar></app-navbar>
 
-<div class="landing-page">
-    <h1>Welcome to Our Grocery Management System</h1>
-    <p>Efficient grocery stock and receipt management for both admins and chefs.</p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <a routerLink="/admin/dashboard" routerLinkActive="active" class="btn btn-primary">Go to Admin Dashboard</a>
-    <a routerLink="/chef/dashboard" routerLinkActive="active" class="btn btn-secondary">Go to Chef Dashboard</a>
-    <router-outlet></router-outlet>
+<!-- Start Hero Section -->
+<div id="hero" class="flex items-center justify-center w-full h-screen bg-orange-100"
+     style="background-image: url('groceries-protal/src/app/assets/bg.png'); background-size: cover; background-position: center;">
+  <div class="max-w-2xl mx-auto text-center">
+    <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl">
+      Your Grocery Shopping Made Easy
+    </h1>
+    <p class="mt-4 text-lg text-gray-700">
+      Experience hassle-free grocery shopping at your fingertips. Get your groceries delivered to your doorstep.
+    </p>
+    <div class="mt-8">
+      <a routerLink="/register" class="px-6 py-3 text-white bg-green-600 rounded-lg hover:bg-green-700">Get Started</a>
+    </div>
+  </div>
 </div>
+<!-- End Hero Section -->
 
+<!-- Start Features Section -->
+<div id="features" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-extrabold text-gray-900">Features You’ll Love</h2>
+    <p class="mt-4 text-lg text-gray-500">Explore the features that make grocery shopping easy and enjoyable.</p>
+    <div class="flex flex-col items-center justify-center mt-10 space-y-10 md:flex-row md:space-x-8 md:space-y-0">
+      <div class="flex flex-col items-center p-6 bg-green-100 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold text-gray-800">Smart List</h3>
+        <p class="mt-2 text-gray-600">Create and manage your grocery lists effortlessly.</p>
+      </div>
+      <div class="flex flex-col items-center p-6 bg-green-100 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold text-gray-800">Easy Checkout</h3>
+        <p class="mt-2 text-gray-600">Quick and secure checkout process to save your time.</p>
+      </div>
+      <div class="flex flex-col items-center p-6 bg-green-100 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold text-gray-800">Fresh Deliveries</h3>
+        <p class="mt-2 text-gray-600">Get fresh groceries delivered to your door with just a few clicks.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Features Section -->
 
-<app-footer></app-footer>
+<!-- Start Testimonials -->
+<div id="testimonials" class="flex items-center justify-center w-full px-8 py-10 border-t border-gray-200">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center">
+      <p class="my-5 text-base font-medium tracking-tight text-green-500 uppercase">What Our Customers Say</p>
+      <h2 class="text-3xl font-extrabold text-gray-900">Testimonials</h2>
+      <p class="my-6 text-lg font-medium text-gray-500">Don't just take our word for it, see what our users say!</p>
+    </div>
+    <div class="flex flex-col items-center justify-center max-w-2xl py-8 mx-auto xl:flex-row xl:max-w-full">
+      <!-- Testimonial 1 -->
+      <blockquote class="flex flex-col-reverse items-center justify-between w-full p-6 text-center bg-green-100 rounded-lg shadow hover:bg-white hover:shadow-md">
+        <div class="flex flex-col pr-8">
+          <div class="relative pl-12">
+            <svg class="absolute left-0 w-10 h-10 text-green-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125">
+              <path d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z" />
+            </svg>
+            <p class="mt-2 text-base text-gray-600">This app has transformed my grocery shopping experience! Fast and reliable.</p>
+          </div>
+          <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800">Alex Johnson 
+            <span class="mt-1 text-sm leading-5 text-gray-500">- Regular User</span>
+          </h3>
+        </div>
+        <img class="w-24 h-24 mb-5 bg-gray-300 rounded-full" src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=2694&q=80" alt="">
+      </blockquote>
+    </div>
+  </div>
+</div>
+<!-- End Testimonials -->
+
+<!-- Start Call to Action Section -->
+<div id="cta" class="py-16 bg-green-600">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-extrabold text-white">Ready to Make Your Grocery Shopping Easier?</h2>
+    <p class="mt-4 text-lg text-white">Join us today and experience the difference!</p>
+    <div class="mt-6">
+      <a routerLink="/register" class="px-6 py-3 text-white bg-orange-500 rounded-lg hover:bg-orange-600">Sign Up Now</a>
+    </div>
+  </div>
+</div>
+<!-- End Call to Action Section -->
+
+<!-- Start Footer -->
+<footer class="py-8 bg-white">
+  <div class="max-w-6xl mx-auto text-center">
+    <p class="text-gray-500">© 2024 GroceryApp. All rights reserved.</p>
+  </div>
+</footer>
+<!-- End Footer -->

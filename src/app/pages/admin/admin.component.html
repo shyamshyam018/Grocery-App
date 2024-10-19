@@ -1,1 +1,19 @@
-<p>admin works!</p>
+<!-- src/app/pages/admin/dashboard/dashboard.component.html -->
+
+<div class="admin-dashboard-container">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <ul>
+        <li><a routerLink="/admin/dashboard" routerLinkActive="active-link">Dashboard</a></li>
+        <li><a routerLink="/admin/edit-stock" routerLinkActive="active-link">Edit Stock</a></li>
+        <li><a routerLink="/admin/generate-bill" routerLinkActive="active-link">Generate Bill</a></li>
+        <!-- Add more menu items here -->
+      </ul>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <router-outlet></router-outlet> 
+    </div>
+  </div>
+  
