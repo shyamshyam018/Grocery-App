@@ -1,7 +1,9 @@
+// src/app/pages/chef/chef.module.ts
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { ChefDashboardComponent } from './dashboard/dashboard.component'; // Ensure this path is correct
+import { ChefRoutingModule } from './chef-routing.module';
+import { ChefComponent } from './chef.component';
+import { ChefDashboardComponent } from './dashboard/dashboard.component';
 import { CreateListComponent } from './create-list/create-list.component';
 import { GenerateReceiptComponent } from './generate-receipt/generate-receipt.component';
 
@@ -11,12 +13,10 @@ import { GenerateReceiptComponent } from './generate-receipt/generate-receipt.co
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild([
-      { path: 'dashboard', component: ChefDashboardComponent },
-      { path: 'create-list', component: CreateListComponent },
-      { path: 'generate-receipt', component: GenerateReceiptComponent },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' } // Default route
-    ])
+    ChefRoutingModule,
+    CreateListComponent,
+    GenerateReceiptComponent,
+    ChefComponent,
   ]
 })
-export class ChefModule { }
+export class ChefModule {}
