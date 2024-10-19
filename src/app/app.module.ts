@@ -1,35 +1,33 @@
+// src/app/app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app.routes'; 
 import { CommonModule } from '@angular/common';
-import { RouterModule, RouterOutlet , RouterLink , RouterLinkActive  } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component'; 
 import { AdminModule } from './pages/admin/admin.module';
 import { ChefModule } from './pages/chef/chef.module';
-// import { NavbarComponent } from './components/navbar/navbar.component';  
-// import { FooterComponent } from './components/footer/footer.component';  
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
+  declarations: [
+    
+  ],
   imports: [
     BrowserModule,
     RouterModule,
     AppRoutingModule,
     AdminModule,
-    ChefModule,
-    // NavbarComponent,  
-    // FooterComponent,
-    AppComponent ,
-    LoginComponent ,
-    RegisterComponent,
+    ChefModule, 
     CommonModule, 
-    RouterOutlet, 
-    RouterLink, 
-    RouterLinkActive
+    FormsModule,
+    AppComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   providers: [],
-  bootstrap: []
+  bootstrap: [] 
 })
-export class AppModule { }
+export class AppModule {}
