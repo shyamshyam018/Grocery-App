@@ -1,95 +1,120 @@
-
-
 <div class="grocery-list w-full max-w-6xl mx-auto p-6">
     <h1 class="title text-3xl font-bold mb-8 text-center">Grocery List</h1>
 
-    <div class="search-container mb-6 flex items-center justify-center"> <!-- Use flex for centering -->
-      <input
-        type="text"
-        [(ngModel)]="searchQuery"
-        placeholder="Search for groceries..."
-        class="search-input border border-gray-300 p-3 rounded w-full md:w-2/3 lg:w-1/2 mr-3"
-      />
+    <div class="search-container mb-6 flex items-center justify-center">
+        <input
+            type="text"
+            [(ngModel)]="searchQuery"
+            placeholder="Search for groceries..."
+            class="search-input border border-gray-300 p-3 rounded w-full md:w-2/3 lg:w-1/2 mr-3"
+        />
+        <!-- Cart Button -->
+        <button (click)="toggleCart()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors">
+            Open Cart
+        </button>
     </div>
 
-  <h1 class="title text-3xl font-semibold mb-8 text-center">Dairy Items</h1>
-<div class="relative flex items-center">
-  <button (click)="scrollLeft()" class="arrow-button bg-gray-300 text-white p-3 rounded-full absolute left-0 z-10">
-      &#9664;
-  </button>
-  <div #categoryScroll class="scroll-container flex space-x-4 overflow-x-auto pb-2" (wheel)="scrollHorizontally($event)">
-      <div class="card-container flex space-x-4">
-          <div *ngFor="let product of filteredProducts()" class="card bg-white border border-gray-300 rounded-md p-4 flex flex-col items-center h-64 shadow-md">
-              <img class="product-image w-28 h-28 object-cover mb-2" [src]="product.imageUrl" alt="{{ product.name }}" />
-              <h3 class="font-semibold text-center">{{ product.name }} <span class="text-gray-600">(Rs. {{ product.price }}/kg)</span></h3>
-              <div class="flex items-center space-x-2 my-2">
-                  <button (click)="decrement(product)" class="bg-gray-300 px-3 py-1 rounded">-</button>
-                  <input type="number" [value]="product.quantity" class="quantity-input w-12 text-center border border-gray-300 rounded" readonly />
-                  <button (click)="increment(product)" class="bg-gray-300 px-3 py-1 rounded">+</button>
-              </div>
-              <p class="font-bold">{{ product.cost | currency }}</p>
-              <button (click)="addToCart(product)" class="bg-blue-500 text-white px-5 py-2 rounded mt-2 hover:bg-blue-600 transition-colors">Add to Cart</button>
-          </div>
-      </div>
-  </div>
-  <button (click)="scrollRight()" class="arrow-button bg-gray-300 text-white p-3 rounded-full absolute right-0 z-10">
-      &#9654;
-  </button>
+    <!-- Cart Modal -->
+    <div *ngIf="isCartOpen" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div class="bg-white p-6 rounded shadow-md w-11/12 md:w-1/3 lg:w-1/4">
+            <h2 class="text-xl font-bold mb-4">Your Cart</h2>
+            <input
+                type="text"
+                [(ngModel)]="cartName"
+                placeholder="Enter cart name"
+                class="border border-gray-300 p-2 rounded w-full mb-4"
+            />
+            <div *ngFor="let item of cartItems" class="flex justify-between items-center mb-2">
+                <span>{{ item.product.name }} ({{ item.quantity }})</span>
+                <div class="flex items-center space-x-2">
+                    <button (click)="decrementCartItem(item)" class="bg-gray-300 px-2 py-1 rounded">-</button>
+                    <input type="number" [(ngModel)]="item.quantity" class="w-12 text-center border border-gray-300 rounded" readonly />
+                    <button (click)="incrementCartItem(item)" class="bg-gray-300 px-2 py-1 rounded">+</button>
+                </div>
+            </div>
+            <div class="flex justify-between mt-4">
+                <span class="font-bold">Total:</span>
+                <span class="font-bold">Rs. {{ totalCost }}</span>
+            </div>
+            <button (click)="finalize()" class="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600 transition-colors">Finalize</button>
+            <button (click)="toggleCart()" class="bg-red-500 text-white px-4 py-2 rounded mt-2 hover:bg-red-600 transition-colors">Close</button>
+        </div>
+    </div>
+    
+
+    <h1 class="title text-3xl font-semibold mb-8 text-center">Dairy Items</h1>
+    <div class="relative flex items-center">
+        <button (click)="scrollLeft()" class="arrow-button bg-gray-300 text-white p-3 rounded-full absolute left-0 z-10">
+            &#9664;
+        </button>
+        <div #categoryScroll class="scroll-container flex space-x-4 overflow-x-auto pb-2" (wheel)="scrollHorizontally($event)">
+            <div class="card-container flex space-x-4">
+                <div *ngFor="let product of filteredProducts()" class="card bg-white border border-gray-300 rounded-md p-4 flex flex-col items-center h-64 shadow-md">
+                    <img class="product-image w-28 h-28 object-cover mb-2" [src]="product.imageUrl" alt="{{ product.name }}" />
+                    <h3 class="font-semibold text-center">{{ product.name }} <span class="text-gray-600">(Rs. {{ product.price }}/kg)</span></h3>
+                    <div class="flex items-center space-x-2 my-2">
+                        <button (click)="decrement(product)" class="bg-gray-300 px-3 py-1 rounded">-</button>
+                        <input type="number" [value]="product.quantity" class="quantity-input w-12 text-center border border-gray-300 rounded" readonly />
+                        <button (click)="increment(product)" class="bg-gray-300 px-3 py-1 rounded">+</button>
+                    </div>
+                    <p class="font-bold">{{ product.cost | currency }}</p>
+                    <button (click)="addToCart(product)" class="bg-blue-500 text-white px-5 py-2 rounded mt-2 hover:bg-blue-600 transition-colors">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <button (click)="scrollRight()" class="arrow-button bg-gray-300 text-white p-3 rounded-full absolute right-0 z-10">
+            &#9654;
+        </button>
+    </div>
+
+    <h1 class="title text-3xl font-semibold mb-8 text-center">Fruits</h1>
+    <div class="relative flex items-center">
+        <button (click)="scrollLeftFruits()" class="arrow-button bg-gray-300 text-white p-3 rounded-full absolute left-0 z-10">
+            &#9664;
+        </button>
+        <div #fruitsScroll class="scroll-container flex space-x-4 overflow-x-auto pb-2" (wheel)="scrollHorizontallyFruits($event)">
+            <div class="card-container flex space-x-4">
+                <div *ngFor="let fruit of filteredFruits()" class="card bg-white border border-gray-300 rounded-md p-4 flex flex-col items-center h-64 shadow-md">
+                    <img class="product-image w-28 h-28 object-cover mb-2" [src]="fruit.imageUrl" alt="{{ fruit.name }}" />
+                    <h3 class="font-semibold text-center">{{ fruit.name }} <span class="text-gray-600">(Rs. {{ fruit.price }}/kg)</span></h3>
+                    <div class="flex items-center space-x-2 my-2">
+                        <button (click)="decrement(fruit)" class="bg-gray-300 px-3 py-1 rounded">-</button>
+                        <input type="number" [value]="fruit.quantity" class="quantity-input w-12 text-center border border-gray-300 rounded" readonly />
+                        <button (click)="increment(fruit)" class="bg-gray-300 px-3 py-1 rounded">+</button>
+                    </div>
+                    <p class="font-bold">{{ fruit.cost | currency }}</p>
+                    <button (click)="addToCart(fruit)" class="bg-blue-500 text-white px-5 py-2 rounded mt-2 hover:bg-blue-600 transition-colors">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <button (click)="scrollRightFruits()" class="arrow-button bg-gray-300 text-white p-3 rounded-full absolute right-0 z-10">
+            &#9654;
+        </button>
+    </div>
+
+    <h1 class="title text-3xl font-semibold mb-8 text-center">Vegetables</h1>
+    <div class="relative flex items-center">
+        <button (click)="scrollLeftVegetables()" class="arrow-button bg-gray-300 text-white p-3 rounded-full absolute left-0 z-10">
+            &#9664;
+        </button>
+        <div #vegetablesScroll class="scroll-container flex space-x-4 overflow-x-auto pb-2" (wheel)="scrollHorizontallyVegetables($event)">
+            <div class="card-container flex space-x-4">
+                <div *ngFor="let vegetable of filteredVegetables()" class="card bg-white border border-gray-300 rounded-md p-4 flex flex-col items-center h-64 shadow-md">
+                    <img class="product-image w-28 h-28 object-cover mb-2" [src]="vegetable.imageUrl" alt="{{ vegetable.name }}" />
+                    <h3 class="font-semibold text-center">{{ vegetable.name }} <span class="text-gray-600">(Rs. {{ vegetable.price }}/kg)</span></h3>
+                    <div class="flex items-center space-x-2 my-2">
+                        <button (click)="decrement(vegetable)" class="bg-gray-300 px-3 py-1 rounded">-</button>
+                        <input type="number" [value]="vegetable.quantity" class="quantity-input w-12 text-center border border-gray-300 rounded" readonly />
+                        <button (click)="increment(vegetable)" class="bg-gray-300 px-3 py-1 rounded">+</button>
+                    </div>
+                    <p class="font-bold">{{ vegetable.cost | currency }}</p>
+                    <button (click)="addToCart(vegetable)" class="bg-blue-500 text-white px-5 py-2 rounded mt-2 hover:bg-blue-600 transition-colors">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <button (click)="scrollRightVegetables()" class="arrow-button bg-gray-300 text-white p-3 rounded-full absolute right-0 z-10">
+            &#9654;
+        </button>
+    </div>
 </div>
-
-<h1 class="title text-3xl font-semibold mb-8 text-center">Fruits</h1>
-<div class="relative flex items-center">
-  <button (click)="scrollLeftFruits()" class="arrow-button bg-gray-300 text-white p-3 rounded-full absolute left-0 z-10">
-      &#9664;
-  </button>
-  <div #fruitsScroll class="scroll-container flex space-x-4 overflow-x-auto pb-2" (wheel)="scrollHorizontallyFruits($event)">
-      <div class="card-container flex space-x-4">
-          <div *ngFor="let fruit of filteredFruits()" class="card bg-white border border-gray-300 rounded-md p-4 flex flex-col items-center h-64 shadow-md">
-              <img class="product-image w-28 h-28 object-cover mb-2" [src]="fruit.imageUrl" alt="{{ fruit.name }}" />
-              <h3 class="font-semibold text-center">{{ fruit.name }} <span class="text-gray-600">(Rs. {{ fruit.price }}/kg)</span></h3>
-              <div class="flex items-center space-x-2 my-2">
-                  <button (click)="decrement(fruit)" class="bg-gray-300 px-3 py-1 rounded">-</button>
-                  <input type="number" [value]="fruit.quantity" class="quantity-input w-12 text-center border border-gray-300 rounded" readonly />
-                  <button (click)="increment(fruit)" class="bg-gray-300 px-3 py-1 rounded">+</button>
-              </div>
-              <p class="font-bold">{{ fruit.cost | currency }}</p>
-              <button (click)="addToCart(fruit)" class="bg-blue-500 text-white px-5 py-2 rounded mt-2 hover:bg-blue-600 transition-colors">Add to Cart</button>
-          </div>
-      </div>
-  </div>
-  <button (click)="scrollRightFruits()" class="arrow-button bg-gray-300 text-white p-3 rounded-full absolute right-0 z-10">
-      &#9654;
-  </button>
-</div>
-
-<h1 class="title text-3xl font-semibold mb-8 text-center">Vegetables</h1>
-<div class="relative flex items-center">
-  <button (click)="scrollLeftVegetables()" class="arrow-button bg-gray-300 text-white p-3 rounded-full absolute left-0 z-10">
-      &#9664;
-  </button>
-  <div #vegetablesScroll class="scroll-container flex space-x-4 overflow-x-auto pb-2" (wheel)="scrollHorizontallyVegetables($event)">
-      <div class="card-container flex space-x-4">
-          <div *ngFor="let vegetable of filteredVegetables()" class="card bg-white border border-gray-300 rounded-md p-4 flex flex-col items-center h-64 shadow-md">
-              <img class="product-image w-28 h-28 object-cover mb-2" [src]="vegetable.imageUrl" alt="{{ vegetable.name }}" />
-              <h3 class="font-semibold text-center">{{ vegetable.name }} <span class="text-gray-600">(Rs. {{ vegetable.price }}/kg)</span></h3>
-              <div class="flex items-center space-x-2 my-2">
-                  <button (click)="decrement(vegetable)" class="bg-gray-300 px-3 py-1 rounded">-</button>
-                  <input type="number" [value]="vegetable.quantity" class="quantity-input w-12 text-center border border-gray-300 rounded" readonly />
-                  <button (click)="increment(vegetable)" class="bg-gray-300 px-3 py-1 rounded">+</button>
-              </div>
-              <p class="font-bold">{{ vegetable.cost | currency }}</p>
-              <button (click)="addToCart(vegetable)" class="bg-blue-500 text-white px-5 py-2 rounded mt-2 hover:bg-blue-600 transition-colors">Add to Cart</button>
-          </div>
-      </div>
-  </div>
-  <button (click)="scrollRightVegetables()" class="arrow-button bg-gray-300 text-white p-3 rounded-full absolute right-0 z-10">
-      &#9654;
-  </button>
-</div>
-
-  
-
-
-</div>
-
 

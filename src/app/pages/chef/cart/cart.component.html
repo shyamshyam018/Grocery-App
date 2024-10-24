@@ -1,0 +1,14 @@
+<div class="cart">
+    <h2>Your Cart: {{ cartName }}</h2>
+  
+    <div *ngIf="cartItems.length === 0">Your cart is empty.</div>
+  
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <span>{{ item.product.name }} ({{ item.quantity }}) - {{ item.product.price * item.quantity }}</span>
+      <button (click)="decrement(item)">-</button>
+      <button (click)="increment(item)">+</button>
+    </div>
+  
+    <h3>Total: {{ totalCost }}</h3>
+  </div>
+  

@@ -1,6 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 import { CreateListComponent } from './create-list/create-list.component';
+import { CartComponent } from './cart/cart.component';
 import { FormsModule } from '@angular/forms';
 
 
@@ -9,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 
   ],
   imports: [
+    CartComponent,
     CommonModule,
     FormsModule,
     CreateListComponent 

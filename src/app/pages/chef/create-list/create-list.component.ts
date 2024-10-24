@@ -12,6 +12,12 @@ interface Product {
   cost: number;
 }
 
+export type CartItem = {
+  product: Product;
+  quantity: number;
+  cost: number;
+};
+
 @Component({
   selector: 'app-create-list',
   standalone: true,
@@ -21,6 +27,10 @@ interface Product {
 })
 export class CreateListComponent {
   searchQuery: string = '';
+  cartItems: CartItem[] = []; // Use the CartItem type
+  totalCost: number = 0;
+  isCartOpen = false; 
+  cartName: string = '';
 
   
   dairyProducts: Product[] = [
@@ -202,23 +212,61 @@ export class CreateListComponent {
     },
     // Add more fruit products as needed
   ];
-  
   @ViewChild('categoryScroll', { static: false }) categoryScroll!: ElementRef<HTMLDivElement>;
   @ViewChild('vegetablesScroll', { static: false }) vegetablesScroll!: ElementRef<HTMLDivElement>;
   @ViewChild('fruitsScroll', { static: false }) fruitsScroll!: ElementRef<HTMLDivElement>;
 
+  addToCart(product: Product) {
+    if (product.quantity > 0) {
+      const existingCartItem = this.cartItems.find(item => item.product.name === product.name);
+      
+      if (existingCartItem) {
+        existingCartItem.quantity += product.quantity; // Update quantity if already in the cart
+        existingCartItem.cost = existingCartItem.product.price * existingCartItem.quantity; // Update cost
+      } else {
+        // Add new item to the cart
+        this.cartItems.push({ product, quantity: product.quantity, cost: product.cost });
+      }
+      
+      this.updateTotalCost();
+      product.quantity = 0; // Reset quantity after adding to cart
+    } else {
+      alert(`Please select a quantity for ${product.name}.`);
+    }
+  }
 
-  // Filter dairy products based on search query
+  updateTotalCost() {
+    this.totalCost = this.cartItems.reduce((total, item) => total + item.cost, 0);
+  }
+
+  incrementCartItem(cartItem: CartItem) {
+    cartItem.quantity++;
+    cartItem.cost = cartItem.product.price * cartItem.quantity; // Use the CartItem type
+    this.updateTotalCost();
+}
+
+decrementCartItem(cartItem: CartItem) {
+    if (cartItem.quantity > 1) {
+        cartItem.quantity--;
+        cartItem.cost = cartItem.product.price * cartItem.quantity; // Use the CartItem type
+        this.updateTotalCost();
+    }
+}
+
+  clearCart() {
+    this.cartItems = [];
+    this.totalCost = 0;
+  }
+
+  // Filter products based on search query
   filteredProducts() {
     return this.dairyProducts.filter(product => product.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
   }
 
-  // Filter vegetable products based on search query
   filteredVegetables() {
     return this.vegetableProducts.filter(product => product.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
   }
 
-  // Filter fruit products based on search query
   filteredFruits() {
     return this.fruitProducts.filter(product => product.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
   }
@@ -239,54 +287,28 @@ export class CreateListComponent {
     product.cost = product.price * product.quantity;
   }
 
-  addToCart(product: Product) {
-    if (product.quantity > 0) {
-      alert(`Added ${product.quantity} ${product.name}(s) to the cart. Total cost: Rs. ${product.cost}`);
-    } else {
-      alert(`Please select a quantity for ${product.name}.`);
-    }
-  }
-
   scrollLeft() {
-    this.categoryScroll.nativeElement.scrollBy({
-      left: -250,
-      behavior: 'smooth',
-    });
+    this.categoryScroll.nativeElement.scrollBy({ left: -250, behavior: 'smooth' });
   }
 
   scrollRight() {
-    this.categoryScroll.nativeElement.scrollBy({
-      left: 250,
-      behavior: 'smooth',
-    });
+    this.categoryScroll.nativeElement.scrollBy({ left: 250, behavior: 'smooth' });
   }
 
   scrollLeftVegetables() {
-    this.vegetablesScroll.nativeElement.scrollBy({
-      left: -250,
-      behavior: 'smooth',
-    });
+    this.vegetablesScroll.nativeElement.scrollBy({ left: -250, behavior: 'smooth' });
   }
 
   scrollRightVegetables() {
-    this.vegetablesScroll.nativeElement.scrollBy({
-      left: 250,
-      behavior: 'smooth',
-    });
+    this.vegetablesScroll.nativeElement.scrollBy({ left: 250, behavior: 'smooth' });
   }
 
   scrollLeftFruits() {
-    this.fruitsScroll.nativeElement.scrollBy({
-      left: -250,
-      behavior: 'smooth',
-    });
+    this.fruitsScroll.nativeElement.scrollBy({ left: -250, behavior: 'smooth' });
   }
 
   scrollRightFruits() {
-    this.fruitsScroll.nativeElement.scrollBy({
-      left: 250,
-      behavior: 'smooth',
-    });
+    this.fruitsScroll.nativeElement.scrollBy({ left: 250, behavior: 'smooth' });
   }
 
   scrollHorizontally(event: WheelEvent) {
@@ -303,10 +325,17 @@ export class CreateListComponent {
     event.preventDefault();
     this.fruitsScroll.nativeElement.scrollLeft += event.deltaY;
   }
-  
+
+  finalize() {
+    // Logic to handle finalizing the cart, if needed in the future
+    alert('Cart finalized!');
+  }
+
+  toggleCart() {
+    this.isCartOpen = !this.isCartOpen;
+  }
+
   viewCart() {
-    // Logic to view the cart, like navigating to a cart component
     alert('Navigating to cart...'); // Replace with actual logic
   }
-  
 }

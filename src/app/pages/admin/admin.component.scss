@@ -1,37 +1,75 @@
-/* src/app/pages/admin/admin.component.scss */
+/* src/app/pages/chef/chef.component.scss */
 .admin-dashboard-container {
   display: flex;
-  min-height: 100vh;
+  min-height: 100vh; /* Full height of the viewport */
 }
 
 .sidebar {
-  width: 250px;
-  background-color: #343a40;
-  color: white;
-  padding: 20px;
+  width: 250px; /* Fixed width for the sidebar */
+  background-color: #343a40; /* Dark background color */
+  color: white; /* Text color */
+  padding: 20px; /* Padding for the sidebar */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+}
+
+.logo-container {
+  display: flex; /* Use flexbox for logo and name alignment */
+  align-items: center; /* Center items vertically */
+  margin-top: 20px; /* Add space above logo */
+  margin-bottom: 30px; /* Space below logo */
+}
+
+.logo {
+  width: 50px; /* Adjust logo size */
+  height: 50px; /* Maintain aspect ratio */
+}
+
+.logo-name {
+  font-size: 1rem; /* Font size for the logo name */
+  margin-left: 10px; /* Space between logo and name */
+  font-weight: bold; /* Make logo name bold */
 }
 
 .sidebar ul {
-  list-style: none;
-  padding: 0;
+  list-style: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  flex-grow: 1; /* Allow the list to grow and fill available space */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
 }
 
 .sidebar ul li {
-  margin: 10px 0;
+  margin: 15px 0; /* Space between items */
+  width: 100%; /* Make list items take the full width */
 }
 
 .sidebar ul li a {
-  color: white;
-  text-decoration: none;
+  color: white; /* Link color */
+  text-decoration: none; /* No underline */
+  display: flex; /* Use flex for better alignment */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  padding: 15px; /* Padding for clickable area */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.sidebar ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Light background on hover */
 }
 
 .sidebar ul li a.active-link {
-  font-weight: bold;
-  color: #ffc107;
+  font-weight: bold; /* Bold font for active link */
+  color: #ffc107; /* Highlight color for active link */
+  background-color: rgba(255, 193, 7, 0.2); /* Light background for active link */
 }
 
 .main-content {
-  flex-grow: 1;
-  padding: 20px;
-  background-color: #f8f9fa;
+  flex-grow: 1; /* Allow main content to fill the remaining space */
+  padding: 20px; /* Padding for the main content */
+  background-color: #f8f9fa; /* Light background color */
 }

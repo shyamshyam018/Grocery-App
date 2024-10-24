@@ -11,6 +11,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     AdminModule,
     ChefModule, 
+    
     CommonModule, 
     FormsModule,
     AppComponent,
