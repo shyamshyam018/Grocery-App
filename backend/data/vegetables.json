@@ -1,0 +1,52 @@
+{
+  "vegetableProducts": [
+    {
+      "name": "Carrot",
+      "description": "Fresh and organic carrots",
+      "imageUrl": "https://thumbs.dreamstime.com/b/fresh-carrot-isolated-white-background-31595343.jpg",
+      "quantity": 0,
+      "price": 50,
+      "cost": 0
+    },
+    {
+      "name": "Broccoli",
+      "description": "Healthy and green broccoli",
+      "imageUrl": "https://thumbs.dreamstime.com/b/fresh-broccoli-25355516.jpg",
+      "quantity": 0,
+      "price": 80,
+      "cost": 0
+    },
+    {
+      "name": "Tomato",
+      "description": "Red and juicy tomatoes",
+      "imageUrl": "https://thumbs.dreamstime.com/b/red-tomato-isolated-white-background-39760300.jpg",
+      "quantity": 0,
+      "price": 40,
+      "cost": 0
+    },
+    {
+      "name": "Spinach",
+      "description": "Fresh and leafy spinach",
+      "imageUrl": "https://thumbs.dreamstime.com/b/fresh-spinach-leaves-isolated-white-background-34901802.jpg",
+      "quantity": 0,
+      "price": 30,
+      "cost": 0
+    },
+    {
+      "name": "Potato",
+      "description": "Versatile and starchy potatoes",
+      "imageUrl": "https://thumbs.dreamstime.com/b/potato-isolated-white-background-clipping-path-94587041.jpg",
+      "quantity": 0,
+      "price": 25,
+      "cost": 0
+    },
+    {
+      "name": "Onion",
+      "description": "Essential and flavorful onions",
+      "imageUrl": "https://thumbs.dreamstime.com/b/red-onion-isolated-white-background-18526115.jpg",
+      "quantity": 0,
+      "price": 35,
+      "cost": 0
+    }
+  ]
+}

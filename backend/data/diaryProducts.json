@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Milk",
+    "description": "Fresh milk",
+    "imageUrl": "https://as1.ftcdn.net/v2/jpg/04/53/06/42/500_F_453064219_GqWMeOYsVmS5lTNJT9FSt1MjRlsUojdJ.jpg",
+    "quantity": 0,
+    "price": 50,
+    "cost": 0
+  },
+  {
+    "name": "Curd",
+    "description": "Creamy curd",
+    "imageUrl": "https://organicmandya.com/cdn/shop/files/Set_Curd_Front_1_ef400c06-c3a9-4e80-b538-b9b6f949fa7b.png?v=1720596755&width=1024",
+    "quantity": 0,
+    "price": 40,
+    "cost": 0
+  },
+  {
+    "name": "Ghee",
+    "description": "Creamy Ghee",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReWUFzuSjRc6jQ_ulM3d6LlgUxMEKRSFbyhA&s",
+    "quantity": 0,
+    "price": 40,
+    "cost": 0
+  },
+  {
+    "name": "ButterMilk",
+    "description": "Creamy ButterMilk",
+    "imageUrl": "https://images-greenchoice-io.nyc3.cdn.digitaloceanspaces.com/kates-real-cultured-buttermilk-q3.jpg",
+    "quantity": 0,
+    "price": 40,
+    "cost": 0
+  },
+  {
+    "name": "Paneer",
+    "description": "Spongy Paneer",
+    "imageUrl": "https://healthynibblesandbits.com/wp-content/uploads/2018/10/How-to-Make-Paneer-10.jpg",
+    "quantity": 0,
+    "price": 40,
+    "cost": 0
+  },
+  {
+    "name": "Butter",
+    "description": "Butter",
+    "imageUrl": "https://m.media-amazon.com/images/I/51KrxEKN58L.jpg",
+    "quantity": 0,
+    "price": 40,
+    "cost": 0
+  },
+  {
+    "name": "Sweet Items",
+    "description": "Sweet",
+    "imageUrl": "https://www.cookwithnabeela.com/wp-content/uploads/2024/02/MilkBarfi.webp",
+    "quantity": 0,
+    "price": 40,
+    "cost": 0
+  }
+]

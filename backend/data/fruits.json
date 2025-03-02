@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Tomato",
+    "description": "Fresh tomatoes",
+    "imageUrl": "https://dukaan.b-cdn.net/700x700/webp/289151/e689c537-1415-4a23-b4bf-81edeec2afac.png",
+    "quantity": 0,
+    "price": 30,
+    "cost": 0
+  },
+  {
+    "name": "Potato",
+    "description": "Fresh potatoes",
+    "imageUrl": "https://static.toiimg.com/photo/92522114.cms",
+    "quantity": 0,
+    "price": 25,
+    "cost": 0
+  },
+  {
+    "name": "Onion",
+    "description": "Fresh onions",
+    "imageUrl": "https://images.herzindagi.info/image/2023/Dec/benefits-of-eating-onions-in-winter-add-to-diet.jpg",
+    "quantity": 0,
+    "price": 20,
+    "cost": 0
+  },
+  {
+    "name": "Carrot",
+    "description": "Crunchy carrots",
+    "imageUrl": "https://www.trustbasket.com/cdn/shop/articles/Carrot.jpg?v=1688378789",
+    "quantity": 0,
+    "price": 40,
+    "cost": 0
+  },
+  {
+    "name": "Cabbage",
+    "description": "Fresh green cabbage",
+    "imageUrl": "https://www.jiomart.com/images/product/original/590002370/cabbage-1-pc-approx-600-g-1000-g-product-images-o590002370-p590002370-0-202409171904.jpg?im=Resize=(420,420)",
+    "quantity": 0,
+    "price": 35,
+    "cost": 0
+  },
+  {
+    "name": "Broccoli",
+    "description": "Healthy broccoli",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwKNWyig-7cLdmUQ3ldzuC09Cuy2jxDh0vLg&s",
+    "quantity": 0,
+    "price": 50,
+    "cost": 0
+  },
+  {
+    "name": "Spinach",
+    "description": "Fresh spinach leaves",
+    "imageUrl": "https://www.verywellfit.com/thmb/UxWeYpyXZqzOw3NvDfhfPLOs2t4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-700709117-5c72b2cfc9e77c0001dd4021.jpg",
+    "quantity": 0,
+    "price": 45,
+    "cost": 0
+  },
+  {
+    "name": "Apple",
+    "description": "Juicy red apples",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/1200px-Red_Apple.jpg",
+    "quantity": 0,
+    "price": 80,
+    "cost": 0
+  },
+  {
+    "name": "Banana",
+    "description": "Fresh bananas",
+    "imageUrl": "https://www.bigbasket.com/media/uploads/p/l/10000005_24-fresho-banana-robusta.jpg",
+    "quantity": 0,
+    "price": 50,
+    "cost": 0
+  },
+  {
+    "name": "Grapes",
+    "description": "Sweet green grapes",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Table_grapes_on_white.jpg/1200px-Table_grapes_on_white.jpg",
+    "quantity": 0,
+    "price": 90,
+    "cost": 0
+  },
+  {
+    "name": "Orange",
+    "description": "Citrusy oranges",
+    "imageUrl": "https://www.jiomart.com/images/product/original/590001780/orange-1-kg-product-images-o590001780-p590001780-0-202405141720.jpg?im=Resize=(420,420)",
+    "quantity": 0,
+    "price": 70,
+    "cost": 0
+  },
+  {
+    "name": "Pineapple",
+    "description": "Fresh pineapple",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Pineapple_and_cross_section.jpg",
+    "quantity": 0,
+    "price": 60,
+    "cost": 0
+  },
+  {
+    "name": "Strawberry",
+    "description": "Sweet strawberries",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/PerfectStrawberry.jpg",
+    "quantity": 0,
+    "price": 120,
+    "cost": 0
+  },
+  {
+    "name": "Watermelon",
+    "description": "Refreshing watermelon",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Watermelon.jpg",
+    "quantity": 0,
+    "price": 35,
+    "cost": 0
+  }
+]
